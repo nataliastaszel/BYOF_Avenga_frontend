@@ -16,6 +16,10 @@ function addEventListenerToTypeItems() {
     typeItem.addEventListener("click", () => {
       document.querySelector(".categories").innerHTML =
         productCategories.generateFilteredCategoriesHtml(typeItem.accessKey);
+      const previousSelectedItem = document.querySelector(".selected-item");
+      if (previousSelectedItem)
+        previousSelectedItem.classList.remove("selected-item");
+      typeItem.classList.add("selected-item");
     });
   }
 }

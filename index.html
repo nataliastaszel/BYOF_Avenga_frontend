@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eko-bazarek</title>
     <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
       <div class="types-container">
         <span class="types-title">Typy</span>
         <div class="types"></div>
+        <label class="vege-toggle-button">
+          <input type="checkbox"/>
+          <span class="slider round"></span>
+        </label>
+        <div class="vege-toggle-button-title">Vege only</div>
       </div>
       <div class="categories-container">
         <span class="categories-title">Kategorie</span>
         <div class="categories"></div>
       </div>
     </main>
-    <footer>App icons by <a href="https://icons8.com/icons">icons8</a></footer>
+    <footer>
+      App icons by
+      <a class="icon-link" href="https://icons8.com/icons">icons8</a>
+    </footer>
     <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

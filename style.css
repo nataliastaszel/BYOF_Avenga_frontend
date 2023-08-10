@@ -3,14 +3,173 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   width: 100vw;
-}
-main {
-  width: 100%;
+  background-color: #f6f5f1;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #000000;
   display: flex;
-  background-color: #f6f5f1;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
 }
+
+main {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  max-width: 864px;
+  width: 100%;
+  margin: 64px 0;
+  justify-content: space-between;
+}
+
+.types-container {
+  display: block;
+  max-width: 160px;
+  width: 100%;
+}
+
+.types-title, .categories-title {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.types {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  height: 37px;
+  margin-bottom: 9px;
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.type-item:hover {
+  background-color: #def2dd;
+}
+
+.selected-item {
+  background-color:#46aa42;
+  color:#fff
+}
+
+.selected-item:hover{
+ background-color: #def2dd;
+ color: initial;
+}
+
+.vege-toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 26px;
+}
+
+.vege-toggle-button input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #DEDEDE;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: url(https://img.icons8.com/color/15/natural-food.png);
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  text-align: center;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #8BC34A;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #8BC34A;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.vege-toggle-button-title{
+  display: inline-block;
+  margin: 5px;
+  position: absolute;
+}
+
+.categories-container {
+  display: block;
+  max-width: calc(100% - 160px - 16px);
+  width: 100%;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 125px;
+  background-color: #fff;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.category-item > img {
+  margin-bottom: 15px;
+}
+
 footer {
-  background-color: #f6f5f1;
+  display: block;
+  text-align: center;
+  margin-top: 64px;
+  width: 100%;
+  height: 48px;
+}
+
+.icon-link {
+  margin-left: 3px;
+  text-decoration: none;
 }
