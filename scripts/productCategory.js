@@ -1,3 +1,5 @@
+import ProductType from "./productType";
+
 class ProductCategory {
   #categories;
 
@@ -11,15 +13,22 @@ class ProductCategory {
       .join("");
   }
 
-  generateFilteredCategoriesHtml(type) {
+  generateFilteredCategoriesHtml(productType) {
     return this.#categories
-      .filter((category) => type === category.type)
+      .filter((category) => productType === category.type)
+      .map((category) => this.#createHtmlCategoryElement(category))
+      .join("");
+  }
+
+  generateVegeCategoriesHtml() {
+    return this.#categories
+      .filter((category) => !ProductType.NOT_VEGETERIAN_TYPES.includes(category.type))
       .map((category) => this.#createHtmlCategoryElement(category))
       .join("");
   }
 
   #createHtmlCategoryElement(category) {
-    return `<div class="category-item">
+    return `<div class="category-item" accesskey=${category.id}>
         <img class="category-icon" src="${category.iconUrl}">
         <p class="category-name">${category.name}</p>
       </div>`;
