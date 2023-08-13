@@ -4,15 +4,15 @@ const PRODUCT_TYPES_URL =
   "https://api-eko-bazarek.azurewebsites.net/api/products/types";
 const PRODUCT_CATEGORIES_URL =
   "https://api-eko-bazarek.azurewebsites.net/api/products/categories";
-const PRODUCT_CATEGORY_ITEM_URL =
+const PRODUCT_CATEGORY_ITEMS_URL =
   "https://api-eko-bazarek.azurewebsites.net/api/products/";
 
 async function fetchDataFrom(url) {
   const response = await fetch(url);
-  if (!response.ok) {
-    showErrorToaster(response.statusText, response.status);
+  if (response.ok) {
+    return await response.json();
   }
-  return await response.json();
+  showErrorToaster(response.statusText, response.status);
 }
 
 function sortArrayByName(array) {
@@ -28,5 +28,5 @@ export async function getProductCategories() {
 }
 
 export async function getProductCategoriesItem(productCategoryId) {
-  return await fetchDataFrom(PRODUCT_CATEGORY_ITEM_URL + productCategoryId);
+  return await fetchDataFrom(PRODUCT_CATEGORY_ITEMS_URL + productCategoryId);
 }
